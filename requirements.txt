@@ -1,0 +1,5 @@
+django==5.0.1
+django-crispy-forms
+django-bootstrap-icons
+crispy-bootstrap5
+django-sass

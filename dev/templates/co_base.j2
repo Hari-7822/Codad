@@ -1,0 +1,61 @@
+
+
+
+<!DOCTYPE html>
+<html lang="en">
+<head>
+{% load static %}
+	<meta charset="utf-8">
+	<!-- SITE TITLE -->
+	<title>CoDad-Home</title>
+<!--
+
+CoDad Template
+
+http://www.templatemo.com/tm-472-CoDad
+
+-->
+	<meta http-equiv="X-UA-Compatible" content="IE=Edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<meta name="keywords" content="">
+	<meta name="description" content="">
+	<!-- STYLESHEET CSS FILES -->
+	<link rel="stylesheet" href="{% static './co/css/bootstrap.min.css' %}">
+	<link rel="stylesheet" href="{% static './co/css/animate.min.css' %}" >
+	<link rel="stylesheet" href="{% static './co/css/font-awesome.min.css' %}">
+	<link rel="stylesheet" href="{% static './co/css/nivo-lightbox.css' %}" >
+	<link rel="stylesheet" href="{% static './co/css/nivo_themes/default/default.css' %}">
+	<link rel="stylesheet" href="{% static './co/css/style.css' %}">
+	<link href='https://fonts.googleapis.com/css?family=Montserrat:400,700' rel='stylesheet' type='text/css'>
+</head>
+
+
+<body data-spy="scroll" data-target=".navbar-collapse" data-offset="50">
+
+<!-- navigation section -->
+<section class="navbar navbar-fixed-top custom-navbar" role="navigation">
+	<div class="container">
+		<div class="navbar-header">
+			<button class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+				<span class="icon icon-bar"></span>
+			</button>
+			<a href="#" class="navbar-brand"><span class="bold">CoDad</span></a>
+		</div>
+		<div class="collapse navbar-collapse">
+			<ul class="nav navbar-nav navbar-right">
+				<li><a href="#home" class="smoothScroll">HOME</a></li>
+				<li><a href="#about" class="smoothScroll">SERVICES</a></li>
+				<li><a href="#pricing" class="smoothScroll">PRICING</a></li>
+				<li><a href="#portfolio" class="smoothScroll">PORTFOLIO</a></li>
+				<!-- <li><a href="#team" class="smoothScroll">TEAM</a></li> -->
+				<li><a href="#contact" class="smoothScroll">CONTACT</a></li>
+			</ul>
+		</div>
+	</div>
+</section>
+
+{% block content %}
+    
+{% endblock %}
