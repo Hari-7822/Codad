@@ -1,0 +1,322 @@
+<!-- Code on GiHub: https://github.com/vitalikda/form-floating-labels-tailwindcss -->
+
+{% load static %}
+
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+      <meta charset="UTF-8">
+      <meta name="viewport" content="width=device-width, initial-scale=1.0">
+      <title>Document</title>
+      <link href= "https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" 
+  rel="stylesheet"> 
+  </head>
+  <style>
+    .-z-1 {
+      z-index: -1;
+    }
+  
+    .origin-0 {
+      transform-origin: 0%;
+    }
+  
+    input:focus ~ label,
+    input:not(:placeholder-shown) ~ label,
+    textarea:focus ~ label,
+    textarea:not(:placeholder-shown) ~ label,
+    select:focus ~ label,
+    select:not([value='']):valid ~ label {
+      /* @apply transform; scale-75; -translate-y-6; */
+      --tw-translate-x: 0;
+      --tw-translate-y: 0;
+      --tw-rotate: 0;
+      --tw-skew-x: 0;
+      --tw-skew-y: 0;
+      transform: translateX(var(--tw-translate-x)) translateY(var(--tw-translate-y)) rotate(var(--tw-rotate))
+        skewX(var(--tw-skew-x)) skewY(var(--tw-skew-y)) scaleX(var(--tw-scale-x)) scaleY(var(--tw-scale-y));
+      --tw-scale-x: 0.75;
+      --tw-scale-y: 0.75;
+      --tw-translate-y: -1.5rem;
+    }
+  
+    input:focus ~ label,
+    select:focus ~ label {
+      /* @apply text-black; left-0; */
+      --tw-text-opacity: 1;
+      color: rgba(0, 0, 0, var(--tw-text-opacity));
+      left: 0px; 
+    }
+  </style>
+  <body class="bg-gray-100">
+      
+    <section class="max-w-2xl mx-auto mt-8 p-6 bg-white rounded-lg shadow-md">
+      
+      <img src="{% static "images/head_img.jpg" %}" alt="TechMinds Banner" class="w-full h-32 object-cover mb-4">
+      <h2 class="text-xl font-semibold mb-4">About Us:</h2>
+      <p class="text-gray-700">TechMinds is a friendly place where you can learn cool stuff! Our internship is like a short adventure where you get to do interesting projects and learn new things. We want to help you grow your skills and have fun doing it.</p>
+
+      <h2 class="text-xl font-semibold mt-6 mb-4">What Makes Us Special?</h2>
+      <p class="text-gray-700">We believe in learning by doing. Our internship is not just about reading stuff; it's about trying out real projects. You can choose what you like – whether it's coding, design, or managing projects.</p>
+
+      <h2 class="text-xl font-semibold mt-6 mb-4">Why Pick TechMinds?</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+          <li>Try Different Things: You'll get to do lots of different projects. It's like trying different flavors of ice cream but with learning!</li>
+          <li>Get Help When You Need: Our friendly mentors are like guides. They'll help you when you're stuck and share their smart ideas.</li>
+          <li>Get Recognized: If you do a great job, you'll get an official paper saying you did awesome. It's like a high-five on paper!</li>
+          <li>Be Creative: We like thinking of new ideas. You can too! Join us and share your ideas.</li>
+      </ul>
+
+      <h2 class="text-xl font-semibold mt-6 mb-4">How to Join:</h2>
+      <ul class="list-disc pl-6 text-gray-700">
+          <li>Look Around: Check out our <a href="#" class="text-blue-500">Website</a> to see what we do.</li>
+          <li>Say Hello: Follow us on <a href="#" class="text-blue-500">LinkedIn</a>. It's like adding a bunch of friends online.</li>
+          <li>Chat with Others: Join our <a href="#" class="text-blue-500">Telegram</a> chat. It's where everyone talks and shares fun things.</li>
+          <li>Pictures and Stories: See cool pictures on <a href="#" class="text-blue-500">Instagram</a>. It's like looking at a friend's photo album.</li>
+          <li>Facebook Friends: Like our <a href="#" class="text-blue-500">Facebook page</a>. It's where we post updates and everyone says hi.</li>
+      </ul>
+
+      <p class="mt-6">Don't forget to be part of the gang online.</p>
+
+      <h2 class="text-xl font-semibold mt-6 mb-4">How to Apply:</h2>
+      <p class="text-gray-700">To join our internship, just fill in a form. We'll send you a special letter within a day!</p>
+
+      <p class="text-red-600 mt-4">Note: Be Fair - Don't Apply Too Much!<br>We want everyone to have a fair chance. Please don't fill in the form many times for the same thing. It won't be fair.</p>
+
+      <p class="text-gray-700 mt-4">TechMinds - Let's Learn and Have Fun Together!</p>
+
+  </section>
+  <form method="post" action="{% url 'apply' %}">
+    {% csrf_token %}
+    <div class="min-h-screen bg-gray-100 p-0 sm:p-12">
+      <div class="mx-auto max-w-2xl px-6 py-12 bg-white border-0 shadow-lg sm:rounded-3xl">
+        <h1 class="text-2xl font-bold mb-8">Form With Floating Labels</h1>
+        <form id="form" novalidate>
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="text"
+              name="name"
+              placeholder=" "
+              required
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            />
+            <label for="name" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter name *</label>
+            <span class="text-sm text-red-600 hidden" id="error">Name is required</span>
+          </div>
+    
+          <div class="relative z-0 w-full mb-5">
+            <input
+              type="email"
+              name="email"
+              placeholder=" "
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            />
+            <label for="email" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter email address *</label>
+            <span class="text-sm text-red-600 hidden" id="error">Email address is required</span>
+          </div>
+      
+          <fieldset class="relative z-0 w-full p-px mb-5" required>
+            <legend class="absolute text-gray-500 transform scale-75 -top-3 origin-0">Choose an option *</legend>
+            <div class="block pt-3 pb-2 space-x-4">
+              <label>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Male"
+                  class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+                />
+                Male
+              </label>
+              <label>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+                />
+                Female
+              </label>
+                <input
+                  type="radio"
+                  name="gender"
+                  value="Female"
+                  class="mr-2 text-black border-2 border-gray-300 focus:border-gray-300 focus:ring-black"
+                />
+                Other
+              </label>
+            </div>
+            <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+          </fieldset>
+
+          <div class="relative z-0 w-full mb-5">
+            <select
+              name="preferred_internship_domain"
+              value=""
+              onclick="this.setAttribute('value', this.value);"
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            >
+              <option value="" selected disabled hidden></option>
+              <option value="WebDevelopment">Web Development</option>
+              <option value="AndroidAppDevelopment">Android App Development</option>
+              <option value="DataScience">Data Science</option>
+              <option value="JavaProgramming">Java Programming</option>
+              <option value="PythonProgramming">Python Programming</option>
+              <option value="CppProgramming">C++ Programming</option>
+              <option value="UI_UX_Design">UI/UX design</option>
+              <option value="ArtificialIntelligence">Artificial Intelligence</option>
+              <option value="MachineLearning">Machine Learning</option>
+            </select>
+            <label for="preferred_internship_domain" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">preferred internship domain *</label>
+            <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+          </div>
+
+          <div class="relative z-0 w-full mb-5">
+            <input
+              required
+              type="text"
+              name="college"
+              placeholder=" "
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            />
+            <label for="college" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter college Name *</label>
+            <span class="text-sm text-red-600 hidden" id="error">college field is required</span>
+          </div>
+
+          <div class="relative z-0 w-full mb-5">
+            <input
+              required
+              type="tel"
+              name="contact_number"
+              placeholder=" "
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            />
+            <label for="contact_number" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter ContactNumber *</label>
+            <span class="text-sm text-red-600 hidden" id="error">ContactNumber field is required</span>
+          </div>
+
+          <div class="relative z-0 w-full mb-5">
+            <input
+             required
+              type="tel"
+              name="whatsapp_number"
+              placeholder=" "
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            />
+            <label for="whatsapp_number" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter whatsappNumber *</label>
+            <span class="text-sm text-red-600 hidden" id="error">whatsappNumber field is required</span>
+          </div>
+
+          <div class="relative z-0 w-full mb-5">
+            <input
+            required
+              type="text"
+              name="highest_academic_qualification"
+              placeholder=" "
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            />
+            <label for="highest_academic_qualification" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter highest academic qualification *</label>
+            <span class="text-sm text-red-600 hidden" id="error">highest_academic_qualification field is required</span>
+          </div>
+    
+          <div class="relative z-0 w-full mb-5">
+            <input
+            required
+              type="number"
+              name="current_year"
+              placeholder=" "
+              min="1900" max="2099" step="1" value="2024"
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            />
+            <label for="current_year" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Enter current year *</label>
+            <span class="text-sm text-red-600 hidden" id="error">current_year field is required</span>
+          </div>
+    
+          <div class="relative z-0 w-full mb-5">
+            <select
+            required
+              name="where_learned_about_codad"
+              value=""
+              onclick="this.setAttribute('value', this.value);"
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            >
+              <option value="" selected disabled hidden></option>
+              <option value="SocialMedia">Social Media ( Instagram, LinkedIn, etc.)</option>
+              <option value="Referral">Referral (Friends, Colleagues, Relatives etc. )</option>
+              <option value="Other">Other</option>
+            </select>
+            <label for="where_learned_about_codad" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">where learned about codad</label>
+            <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+          </div>
+
+          <div class="relative z-0 w-full mb-5">
+            <select
+            required
+              name="joined_using"
+              value=""
+              onclick="this.setAttribute('value', this.value);"
+              class="pt-3 pb-2 block w-full px-0 mt-0 bg-transparent border-0 border-b-2 appearance-none z-1 focus:outline-none focus:ring-0 focus:border-black border-gray-200"
+            >
+              <option value="" selected disabled hidden></option>
+              <option value="yes">Yes</option>
+              <option value="no">No</option>
+            </select>
+            <label for="joined_using" class="absolute duration-300 top-3 -z-1 origin-0 text-gray-500">Did you follow & joined our groups ?</label>
+            <span class="text-sm text-red-600 hidden" id="error">Option has to be selected</span>
+          </div>
+          <input type="checkbox" id="accept_terms" name="accept_terms" required>
+          <label for="accept_terms">I have read and understood the details regarding the internship, and I acknowledge my agreement with and acceptance of the terms and conditions </label>
+
+          <button
+            id="button"
+            type="submit"
+            style="cursor:no-drop"
+            class="w-full px-6 py-3 mt-3 text-lg text-white transition-all duration-150 ease-linear rounded-lg shadow outline-none bg-pink-500 hover:bg-pink-600 hover:shadow-lg focus:outline-none"
+          >
+            Apply
+          </button>
+        </form>
+      </div>
+    </div>
+  </form>
+</body>
+<script>
+  'use strict'
+
+  {% comment %} document.getElementById('button').addEventListener('click', toggleError)
+  const errMessages = document.querySelectorAll('#error')
+
+  function toggleError() {
+    // Show error message
+    errMessages.forEach((el) => {
+      el.classList.toggle('hidden')
+    })
+
+    // Highlight input and label with red
+    const allBorders = document.querySelectorAll('.border-gray-200')
+    const allTexts = document.querySelectorAll('.text-gray-500')
+    allBorders.forEach((el) => {
+      el.classList.toggle('border-red-600')
+    })
+    allTexts.forEach((el) => {
+      el.classList.toggle('text-red-600')
+    })
+  } {% endcomment %}
+
+  document.addEventListener('DOMContentLoaded', function () {
+    var checkbox = document.getElementById('accept_terms');
+    var button = document.getElementById('button');
+
+    checkbox.addEventListener('change', function () {
+      button.disabled = !checkbox.checked;
+      button.style.cursor = checkbox.checked ? 'pointer' : 'no-drop';
+    });
+
+    // Disable the button initially if the checkbox is not checked
+    button.disabled = !checkbox.checked;
+  });
+</script>
+
+</html>
+
+
+  
+ 

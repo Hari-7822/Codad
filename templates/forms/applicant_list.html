@@ -1,0 +1,66 @@
+<!-- myapp/templates/applicant_list.html -->
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Applicant List</title>
+    <style>
+        table {
+            border-collapse: collapse;
+            width: 100%;
+        }
+
+        th, td {
+            border: 1px solid #dddddd;
+            text-align: left;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+        }
+    </style>
+</head>
+<body>
+    <h2>Applicant List</h2>
+    <table>
+        <thead>
+            <tr>
+                <th>ID</th>
+                <th>Email</th>
+                <th>Name</th>
+                <th>Gender</th>
+                <th>Preferred Internship Domain</th>
+                <th>College</th>
+                <th>Contact Number</th>
+                <th>WhatsApp Number</th>
+                <th>Highest Academic Qualification</th>
+                <th>Current Year</th>
+                <th>Where Learned About CODAD</th>
+                <th>Joined Using</th>
+                <th>Accept Terms</th>
+                <th>Updated Time</th>
+            </tr>
+        </thead>
+        <tbody>
+            {% for applicant in applicants %}
+                <tr>
+                    <td>{{ applicant.id }}</td>
+                    <td>{{ applicant.email }}</td>
+                    <td>{{ applicant.name }}</td>
+                    <td>{{ applicant.gender }}</td>
+                    <td>{{ applicant.preferred_internship_domain }}</td>
+                    <td>{{ applicant.college }}</td>
+                    <td>{{ applicant.contact_number }}</td>
+                    <td>{{ applicant.whatsapp_number }}</td>
+                    <td>{{ applicant.highest_academic_qualification }}</td>
+                    <td>{{ applicant.current_year }}</td>
+                    <td>{{ applicant.where_learned_about_codad }}</td>
+                    <td>{{ applicant.joined_using }}</td>
+                    <td>{{ applicant.accept_terms }}</td>
+                    <td>{{ applicant.updated_time }}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+</body>
+</html>
