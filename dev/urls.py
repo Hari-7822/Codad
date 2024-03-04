@@ -31,6 +31,7 @@ auth = [
     path('login', user_login, name='login'),
 ]
 common = [
+    path('home/', home, name='homes'),
     path('home', home, name='home'),
     path('', co, name = "index"),
     path('serve_image_with_cors/', serve_image_with_cors, name='serve_image_with_cors'),
