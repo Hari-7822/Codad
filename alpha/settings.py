@@ -159,3 +159,4 @@ EMAIL_PORT = 587
 EMAIL_HOST_PASSWORD = 'lgnl ypby ondq hgmo'  # TODO: Give APP Password here
 EMAIL_USE_TLS = True
 
+# NOTE
